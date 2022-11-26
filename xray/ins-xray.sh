@@ -27,7 +27,7 @@ chronyc sourcestats -v
 chronyc tracking -v
 echo -e "[ ${green}INFO$NC ] Setting dll"
 apt clean all && apt update
-apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
+apt install curl socat xz-utils curl apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
 apt install socat cron bash-completion ntpdate -y
 ntpdate pool.ntp.org
 apt -y install chrony
@@ -491,31 +491,31 @@ systemctl restart runn
 
 cd /usr/bin/
 # vmess
-wget -O add-ws "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/add-ws.sh" && chmod +x add-ws
-wget -O trialvmess "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/trialvmess.sh" && chmod +x trialvmess
-wget -O renew-ws "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/renew-ws.sh" && chmod +x renew-ws
-wget -O del-ws "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/del-ws.sh" && chmod +x del-ws
-wget -O cek-ws "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/cek-ws.sh" && chmod +x cek-ws
+curl -O add-ws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/add-ws.sh" && chmod +x add-ws
+curl -O trialvmess "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/trialvmess.sh" && chmod +x trialvmess
+curl -O renew-ws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/renew-ws.sh" && chmod +x renew-ws
+curl -O del-ws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/del-ws.sh" && chmod +x del-ws
+curl -O cek-ws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/cek-ws.sh" && chmod +x cek-ws
 
 # vless
-wget -O add-vless "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/add-vless.sh" && chmod +x add-vless
-wget -O trialvless "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/trialvless.sh" && chmod +x trialvless
-wget -O renew-vless "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/renew-vless.sh" && chmod +x renew-vless
-wget -O del-vless "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/del-vless.sh" && chmod +x del-vless
-wget -O cek-vless "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/cek-vless.sh" && chmod +x cek-vless
+curl -O add-vless "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/add-vless.sh" && chmod +x add-vless
+curl -O trialvless "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/trialvless.sh" && chmod +x trialvless
+curl -O renew-vless "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/renew-vless.sh" && chmod +x renew-vless
+curl -O del-vless "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/del-vless.sh" && chmod +x del-vless
+curl -O cek-vless "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/cek-vless.sh" && chmod +x cek-vless
 
 # trojan
-wget -O add-tr "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/add-tr.sh" && chmod +x add-tr
-wget -O trialtrojan "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/trialtrojan.sh" && chmod +x trialtrojan
-wget -O del-tr "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/del-tr.sh" && chmod +x del-tr
-wget -O renew-tr "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/renew-tr.sh" && chmod +x renew-tr
-wget -O cek-tr "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/cek-tr.sh" && chmod +x cek-tr
+curl -O add-tr "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/add-tr.sh" && chmod +x add-tr
+curl -O trialtrojan "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/trialtrojan.sh" && chmod +x trialtrojan
+curl -O del-tr "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/del-tr.sh" && chmod +x del-tr
+curl -O renew-tr "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/renew-tr.sh" && chmod +x renew-tr
+curl -O cek-tr "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/cek-tr.sh" && chmod +x cek-tr
 
 # shadowsocks
-wget -O add-ssws "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/add-ssws.sh" && chmod +x add-ssws
-wget -O trialssws "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/trialssws.sh" && chmod +x trialssws
-wget -O del-ssws "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/del-ssws.sh" && chmod +x del-ssws
-wget -O renew-ssws "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/renew-ssws.sh" && chmod +x renew-ssws
+curl -O add-ssws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/add-ssws.sh" && chmod +x add-ssws
+curl -O trialssws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/trialssws.sh" && chmod +x trialssws
+curl -O del-ssws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/del-ssws.sh" && chmod +x del-ssws
+curl -O renew-ssws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/renew-ssws.sh" && chmod +x renew-ssws
 
 
 sleep 0.5

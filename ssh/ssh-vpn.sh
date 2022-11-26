@@ -10,7 +10,7 @@ apt install -y screen curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzi
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(wget -sS ipaddress.sh);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 source /etc/os-release
@@ -26,7 +26,7 @@ commonname=none
 email=none
 
 # simple password minimal
-curl -sS https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
+curl -sS https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -134,13 +134,13 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/nginx.conf"
 mkdir -p /home/vps/public_html
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/newudpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -253,7 +253,7 @@ echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
 #install bbr dan optimasi kernel
-#wget https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+#wget https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 # blokir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -275,51 +275,51 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget -O menu "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/menu.sh"
-wget -O m-vmess "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/m-vmess.sh"
-wget -O m-vless "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/m-vless.sh"
-wget -O running "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/running.sh"
-wget -O clearcache "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/clearcache.sh"
-wget -O m-ssws "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/m-ssws.sh"
-wget -O m-trojan "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/m-trojan.sh"
+wget -O menu "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/menu.sh"
+wget -O m-vmess "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/m-vmess.sh"
+wget -O m-vless "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/m-vless.sh"
+wget -O running "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/running.sh"
+wget -O clearcache "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/clearcache.sh"
+wget -O m-ssws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/m-ssws.sh"
+wget -O m-trojan "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/m-trojan.sh"
 
 # menu ssh ovpn
-wget -O m-sshovpn "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/m-sshovpn.sh"
-wget -O usernew "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/trial.sh"
-wget -O renew "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/renew.sh"
-wget -O hapus "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/cek.sh"
-wget -O member "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/member.sh"
-wget -O delete "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/delete.sh"
-wget -O autokill "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/tendang.sh"
-wget -O sshws "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/sshws.sh"
+wget -O m-sshovpn "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/m-sshovpn.sh"
+wget -O usernew "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/trial.sh"
+wget -O renew "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/renew.sh"
+wget -O hapus "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/hapus.sh"
+wget -O cek "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/cek.sh"
+wget -O member "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/member.sh"
+wget -O delete "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/delete.sh"
+wget -O autokill "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/tendang.sh"
+wget -O sshws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/sshws.sh"
 
 # menu system
-wget -O m-system "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/m-system.sh"
-wget -O m-domain "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/m-domain.sh"
-wget -O add-host "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/add-host.sh"
-#wget -O port-change "https://raw.githubusercontent.com/oktest145/supreme/aio/port/port-change.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/oktest145/supreme/aio/xray/certv2ray.sh"
-#wget -O m-webmin "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/m-webmin.sh"
-wget -O speedtest "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/speedtest_cli.py"
-#wget -O about "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/about.sh"
-wget -O auto-reboot "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/auto-reboot.sh"
-wget -O restart "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/restart.sh"
-wget -O bw "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/bw.sh"
-wget -O m-tcp "https://raw.githubusercontent.com/oktest145/supreme/aio/menu/tcp.sh"
+wget -O m-system "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/m-system.sh"
+wget -O m-domain "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/m-domain.sh"
+wget -O add-host "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/add-host.sh"
+#wget -O port-change "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/port/port-change.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/xray/certv2ray.sh"
+#wget -O m-webmin "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/m-webmin.sh"
+wget -O speedtest "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/speedtest_cli.py"
+#wget -O about "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/about.sh"
+wget -O auto-reboot "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/auto-reboot.sh"
+wget -O restart "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/restart.sh"
+wget -O bw "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/bw.sh"
+wget -O m-tcp "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/menu/tcp.sh"
 
 # change port
-#wget -O port-ssl "https://raw.githubusercontent.com/oktest145/supreme/aio/port/port-ssl.sh"
-#wget -O port-ovpn "https://raw.githubusercontent.com/oktest145/supreme/aio/port/port-ovpn.sh"
-#wget -O port-tr "https://raw.githubusercontent.com/oktest145/supreme/aio/port/port-tr.sh"
+#wget -O port-ssl "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/port/port-ssl.sh"
+#wget -O port-ovpn "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/port/port-ovpn.sh"
+#wget -O port-tr "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/port/port-tr.sh"
 
 
-wget -O xp "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/xp.sh"
-#wget -O asu "https://raw.githubusercontent.com/oktest145/supreme/aio/asu.sh"
-wget -O sshws "https://raw.githubusercontent.com/oktest145/supreme/aio/ssh/sshws.sh"
+wget -O xp "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/xp.sh"
+#wget -O asu "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/asu.sh"
+wget -O sshws "https://raw.githubusercontent.com/oktest145/SSH-MANAGER/aio/ssh/sshws.sh"
 
 chmod +x menu
 chmod +x m-vmess
