@@ -84,9 +84,9 @@ installlot(){
 		yum install -y http://${github}/lotserver/${release}/${version}/${bit}/kernel-headers-${kernel_version}.rpm
 		yum install -y http://${github}/lotserver/${release}/${version}/${bit}/kernel-devel-${kernel_version}.rpm
 	elif [[ "${release}" == "ubuntu" ]]; then
-		bash <(wget --no-check-certificate -qO- "http://${github}/Debian_Kernel.sh")
+		bash <(wget --no-check-certificate -sS "http://${github}/Debian_Kernel.sh")
 	elif [[ "${release}" == "debian" ]]; then
-		bash <(wget --no-check-certificate -qO- "http://${github}/Debian_Kernel.sh")
+		bash <(wget --no-check-certificate -sS "http://${github}/Debian_Kernel.sh")
 	fi
 	detele_kernel
 	BBR_grub
@@ -204,7 +204,7 @@ startlotserver(){
 		apt-get update
 		apt-get install ethtool
 	fi
-	bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/chiakge/lotServer/master/Install.sh) install
+	bash <(wget --no-check-certificate -sS https://raw.githubusercontent.com/chiakge/lotServer/master/Install.sh) install
 	sed -i '/advinacc/d' /appex/etc/config
 	sed -i '/maxmode/d' /appex/etc/config
 	echo -e "advinacc=\"1\"
@@ -252,7 +252,7 @@ remove_all(){
 	sed -i '/net.ipv4.tcp_timestamps/d' /etc/sysctl.conf
 	sed -i '/net.ipv4.tcp_max_orphans/d' /etc/sysctl.conf
 	if [[ -e /appex/bin/lotServer.sh ]]; then
-		bash <(wget --no-check-certificate -qO- https://github.com/MoeClub/lotServer/raw/master/Install.sh) uninstall
+		bash <(wget --no-check-certificate -sS https://github.com/MoeClub/lotServer/raw/master/Install.sh) uninstall
 	fi
 	clear
 	echo -e "${Info} Clear acceleration is complete."
@@ -309,7 +309,7 @@ net.ipv4.ip_forward = 1">>/etc/sysctl.conf
 #Update script
 Update_Shell(){
 	echo -e "The current version is [ ${sh_ver} ], start checking the latest version..."
-	sh_new_ver=$(wget --no-check-certificate -qO- "http://${github}/tcp.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1)
+	sh_new_ver=$(wget --no-check-certificate -sS "http://${github}/tcp.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1)
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Failed to detect the latest version!" && start_menu
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
 		echo -e "Found a new version [ ${sh_new_ver} ], do you want to update? [Y/n]"
